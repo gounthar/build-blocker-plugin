@@ -31,11 +31,11 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.only;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.support.membermodification.MemberMatcher.field;
 
@@ -185,7 +185,7 @@ public class BlockingJobsMonitorUnitTest {
         assertThat(monitor.checkNodeForBuildableQueueEntries(buildableItem, node), is(nullValue()));
 
         //the do not selfblock condition is hit => no interactions with the project
-        verifyZeroInteractions(project);
+        verifyNoInteractions(project);
     }
 
     @Test
@@ -286,7 +286,7 @@ public class BlockingJobsMonitorUnitTest {
         assertThat(monitor.checkNodeForBuildableQueueEntries(buildableItem, node), is(nullValue()));
 
         //the do not selfblock condition is hit => no interactions with the project
-        verifyZeroInteractions(project);
+        verifyNoInteractions(project);
     }
 
     @Test

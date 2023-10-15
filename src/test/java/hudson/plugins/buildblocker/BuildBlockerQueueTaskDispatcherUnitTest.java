@@ -12,11 +12,11 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.support.membermodification.MemberMatcher.field;
 
@@ -53,7 +53,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canRun(item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canRun(item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -152,7 +152,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canRun(item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -168,7 +168,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canRun(item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -184,7 +184,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canRun(item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -201,7 +201,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canRun(item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -289,7 +289,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -302,7 +302,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -317,7 +317,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -333,7 +333,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -349,7 +349,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -366,7 +366,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -453,7 +453,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -469,7 +469,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -485,7 +485,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     @Test
@@ -502,7 +502,7 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
 
         dispatcher.canTake(node, item);
 
-        verifyZeroInteractions(monitor);
+        verifyNoInteractions(monitor);
     }
 
     private class FieldReturningMonitorFactory implements MonitorFactory {
