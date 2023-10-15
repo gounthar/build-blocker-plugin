@@ -100,7 +100,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <bom>2.361.x</bom>
         <jenkins.version>2.361.4</jenkins.version>
-        <maven.version>3.0.4</maven.version>
+        <maven.version>3.9.5</maven.version>
     </properties>
 
     <build>
