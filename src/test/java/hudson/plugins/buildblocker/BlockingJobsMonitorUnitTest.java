@@ -2,13 +2,7 @@ package hudson.plugins.buildblocker;
 
 import hudson.matrix.MatrixConfiguration;
 import hudson.matrix.MatrixProject;
-import hudson.model.Computer;
-import hudson.model.Executor;
-import hudson.model.Label;
-import hudson.model.Node;
-import hudson.model.OneOffExecutor;
-import hudson.model.Project;
-import hudson.model.Queue;
+import hudson.model.*;
 import hudson.model.Queue.BuildableItem;
 import hudson.model.queue.SubTask;
 import hudson.model.queue.WorkUnit;
@@ -20,17 +14,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
-import org.mockito.MockedStatic;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.quality.Strictness;
-import org.powermock.reflect.Whitebox;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.quality.Strictness;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.verifyNoInteractions;
-import static org.mockito.Mockito.withSettings;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.reflect.Whitebox;
 
@@ -39,17 +24,10 @@ import java.util.Collections;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.only;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
-import static org.mockito.Mockito.when;
-import static org.powermock.api.support.membermodification.MemberMatcher.field;
+import static org.mockito.Mockito.*;
 
 @PrepareForTest({Jenkins.class, BuildableItem.class, Queue.BlockedItem.class, Queue.WaitingItem.class, Project.class, WorkUnit.class})
 @RunWith(MockitoJUnitRunner.class)
