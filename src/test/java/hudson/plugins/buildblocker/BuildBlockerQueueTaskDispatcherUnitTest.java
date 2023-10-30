@@ -38,9 +38,9 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
     public void setup() throws IllegalAccessException {
         dispatcher = new BuildBlockerQueueTaskDispatcher(new FieldReturningMonitorFactory(monitor));
 
-        project = PowerMockito.mock(AbstractProject.class);
-        item = PowerMockito.mock(Queue.BuildableItem.class);
-        field(Queue.Item.class, "task").set(item, project);
+        project = mock(AbstractProject.class);
+        item = mock(Queue.BuildableItem.class);
+        Whitebox.getField(Queue.Item.class, "task").set(item, project);
     }
 
     @Test
