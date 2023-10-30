@@ -16,7 +16,6 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.quality.Strictness;
-import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.reflect.Whitebox;
 
 import java.util.ArrayList;
@@ -27,9 +26,16 @@ import static java.util.Collections.singletonList;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
 
-@PrepareForTest({Jenkins.class, BuildableItem.class, Queue.BlockedItem.class, Queue.WaitingItem.class, Project.class, WorkUnit.class})
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.only;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.withSettings;
+
 @RunWith(MockitoJUnitRunner.class)
 public class BlockingJobsMonitorUnitTest {
 
@@ -37,7 +43,7 @@ public class BlockingJobsMonitorUnitTest {
     private Node node;
     @Mock
     private Computer computer;
-    @Mock
+    @Mock(strictness = Mock.Strictness.LENIENT)
     private Queue queue;
     @Mock
     private Executor idleExecutor;
