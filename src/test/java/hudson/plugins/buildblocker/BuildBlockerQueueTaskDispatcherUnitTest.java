@@ -6,11 +6,10 @@ import hudson.model.Project;
 import hudson.model.Queue;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.mockito.Mockito;
 
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.times;
@@ -20,8 +19,6 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.support.membermodification.MemberMatcher.field;
 
-@PrepareForTest({Queue.BuildableItem.class, Project.class})
-@RunWith(PowerMockRunner.class)
 public class BuildBlockerQueueTaskDispatcherUnitTest {
 
     @Mock
@@ -38,9 +35,17 @@ public class BuildBlockerQueueTaskDispatcherUnitTest {
     public void setup() throws IllegalAccessException {
         dispatcher = new BuildBlockerQueueTaskDispatcher(new FieldReturningMonitorFactory(monitor));
 
-        project = PowerMockito.mock(AbstractProject.class);
-        item = PowerMockito.mock(Queue.BuildableItem.class);
+        project = Mockito.mock(AbstractProject.class);
+        item = Mockito.mock(Queue.BuildableItem.class);
         field(Queue.Item.class, "task").set(item, project);
+    }
+
+    @BeforeEach
+    void setUpStaticMocks() {
+    }
+
+    @AfterEach
+    void tearDownStaticMocks() {
     }
 
     @Test
